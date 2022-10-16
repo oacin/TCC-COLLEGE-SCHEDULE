@@ -1,0 +1,203 @@
+/* elements */
+body {
+	font: 400 16px 'Muli', sans-serif !important;
+	margin: 0;
+	padding: 0;
+	background-color: #dabd03;
+  }
+  
+  header {
+	margin: 0;
+	max-width: 100%;
+	padding: 5px;
+	text-align: center;
+	overflow: auto;
+  }
+
+  #logo{
+	width: 30%;
+	text-align: center;
+  }
+
+  .logo{
+	text-align: center;
+  }
+
+  h1{
+	text-align: center;
+	font-size: 50px;
+	color: #021c3c;
+  }
+  
+  ul{
+	list-style-type: none;
+	margin: 0 auto;
+	padding: 0
+  }
+  
+  li{
+	background: slategrey;
+	display: inline-block;
+	margin: 5px;
+	padding: 5px 7px;
+  }
+  
+  li > a {
+	color: white; 
+	font-size: 16px;
+  }
+  
+  li > a:hover{
+	color: #262626;
+	text-decoration: none;
+  }
+  
+  .inner {
+	padding: 30px;
+  }
+  /* headings */
+  
+  .container-fluid h2 {
+	font-family: 'Montserrat', sans-serif;
+  }
+  
+  .site-title {
+	font-size: 50px;
+	font-weight: 300;
+	text-transform: uppercase;
+  }
+
+  
+  /* table */
+  table{
+	margin: 10px auto;
+  }
+  
+  table > tbody > tr.tableizer-firstrow > th {
+	padding: 10px;
+	background: #021c3c;
+	border: 2px solid #021c3c;
+	color: white;
+	text-align: center;
+  }
+  
+  body > div.container-fluid.inner > table > tbody > tr > td{
+	border: 2px solid #021c3c;
+	width: 200px;
+	padding: 10px;
+	background: #f8f8f8;
+	text-align: center;
+  }
+
+
+
+
+.buttonExitLoc{
+	position: relative;
+	margin: 20px;
+}
+
+.buttonCadastroLoc{
+	position:absolute;
+	text-align: center;
+	right: 20px;
+	top: 20px;
+}
+
+
+
+
+
+
+  .button-exit {
+	align-items: center;
+	background-color: #ff0000;
+	border: 0;
+	border-radius: 10px;
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-flex;
+	font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	font-weight: 600;
+	justify-content: center;
+	line-height: 50px;
+	max-width: 480px;
+	min-height: 40px;
+	min-width: 0px;
+	overflow: hidden;
+	padding: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	touch-action: manipulation;
+	transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+	user-select: none;
+	-webkit-user-select: none;
+	vertical-align: middle;
+  }
+  
+  .button-exit:hover,
+  .button-exit:focus { 
+	background-color: #690303;
+	color: #ffffff;
+  }
+  
+  .button-exit:active {
+	background: #790404;
+	color: rgb(255, 255, 255, .7);
+  }
+  
+  .button-exit:disabled { 
+	cursor: not-allowed;
+	background: rgba(0, 0, 0, .08);
+	color: rgba(0, 0, 0, .3);
+  }
+
+
+  .button-novoCurso {
+	align-items: center;
+	background-color: #021c3c;
+	border: 0;
+	border-radius: 10px;
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-flex;
+	font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	font-weight: 600;
+	justify-content: center;
+	line-height: 50px;
+	max-width: 480px;
+	min-height: 40px;
+	min-width: 0px;
+	overflow: hidden;
+	padding: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	touch-action: manipulation;
+	transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+	user-select: none;
+	-webkit-user-select: none;
+	vertical-align: middle;
+  }
+  
+  .button-novoCurso:hover,
+  .button-novoCurso:focus { 
+	background-color: #002757;
+	color: #ffffff;
+  }
+  
+  .button-novoCurso:active {
+	background: #002757;
+	color: rgb(255, 255, 255, .7);
+  }
+  
+  .button-novoCurso:disabled { 
+	cursor: not-allowed;
+	background: rgba(0, 0, 0, .08);
+	color: rgba(0, 0, 0, .3);
+  }
