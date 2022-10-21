@@ -45,7 +45,9 @@ include_once("conexao.php");
       
           <form class="card" method="POST" action="processaAlocar.php">
 
-            <select name="aula" required>
+            <select name="aula" 
+            style="border-radius: 5px; padding: 0px 75px; background-color: #f6f6f6; color: #0d0d0d; font-size: 16px; text-align: center;" 
+            required>
               <option>Selecione a sala</option>
               <?php
 						$result_saida = "select *  from aula INNER JOIN curso
@@ -63,7 +65,9 @@ include_once("conexao.php");
 
             <br></br>
 
-            <select name="dia" required>
+            <select name="dia" 
+            style="border-radius: 5px; padding: 0px 135px; background-color: #f6f6f6; color: #0d0d0d; font-size: 16px; text-align: center;" 
+            required>
               <option>Selecione o dia</option>
               <?php
 						$result_saida = "SELECT * FROM dsemana";

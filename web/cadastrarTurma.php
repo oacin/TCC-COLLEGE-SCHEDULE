@@ -47,8 +47,10 @@ include_once("conexao.php");
             <input type="text" id="nome" name="nome" placeholder="Nome da turma" autocomplete="off">
             <input type="number" id="semestre" name="semestre" placeholder="Semestre">
             
-            <select name="select_curso" required>
-              <option>Selecione o curso</option>
+            <select name="select_curso" 
+            style="border-radius: 5px; padding: 0px 70px; background-color: #f6f6f6; color: #0d0d0d; font-size: 16px; text-align: center;" 
+            required>
+              <option value="" disabled selected>Selecione o curso</option>
               <?php
               $result_saida = "SELECT * FROM curso";
               $resultado_saida = mysqli_query($conn, $result_saida);

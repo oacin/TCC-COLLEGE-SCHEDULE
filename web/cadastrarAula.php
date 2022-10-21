@@ -44,7 +44,9 @@ include_once("conexao.php");
           </div>
       
           <form class="card" method="POST" action="processaAula.php">
-            <select name="curso" required>
+            <select name="curso" 
+            style="border-radius: 5px; padding: 0px 70px; background-color: #f6f6f6; color: #0d0d0d; font-size: 16px; text-align: center;" 
+            required>
               <option>Selecione o curso</option>
               <?php
               $result_saida = "SELECT * FROM curso";
@@ -57,7 +59,9 @@ include_once("conexao.php");
 
             <br></br>
 
-            <select name="turma" required>
+            <select name="turma" 
+            style="border-radius: 5px; padding: 0px 135px; background-color: #f6f6f6; color: #0d0d0d; font-size: 16px; text-align: center;" 
+            required>
               <option>Selecione a Turma</option>
               <?php
                 $result_saida = "SELECT * FROM turma";
@@ -70,7 +74,9 @@ include_once("conexao.php");
 
             <br></br>
 
-            <select name="disciplina" required>
+            <select name="disciplina" 
+            style="border-radius: 5px; padding: 0px 125px; background-color: #f6f6f6; color: #0d0d0d; font-size: 16px; text-align: center;" 
+            required>
               <option>Selecione a Disciplina</option>
               <?php
                 $result_saida = "SELECT * FROM disciplina";
@@ -83,7 +89,9 @@ include_once("conexao.php");
 
             <br></br>
 
-            <select name="professor" required>
+            <select name="professor" 
+            style="border-radius: 5px; padding: 0px 125px; background-color: #f6f6f6; color: #0d0d0d; font-size: 16px; text-align: center;" 
+            required>
               <option>Selecione o Professor</option>
               <?php
                 $result_saida = "SELECT * FROM professor";
@@ -96,7 +104,9 @@ include_once("conexao.php");
 
             <br></br>
 
-            <select name="sala" required>
+            <select name="sala" 
+            style="border-radius: 5px; padding: 0px 145px; background-color: #f6f6f6; color: #0d0d0d; font-size: 16px; text-align: center;" 
+            required>
               <option>Selecione a Sala</option>
               <?php
                 $result_saida = "SELECT * FROM sala";

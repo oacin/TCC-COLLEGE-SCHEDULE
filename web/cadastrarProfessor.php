@@ -49,7 +49,9 @@ include_once("conexao.php");
             <input type="date" id="data" name="data" placeholder="Data de Nascimento" autocomplete="off">
             <input type="text" id="formacao" name="formacao" placeholder="Formação" autocomplete="off">
 
-            <select name="select_disci" required>
+            <select name="select_disci" 
+            style="border-radius: 5px; padding: 0px 125px; background-color: #f6f6f6; color: #0d0d0d; font-size: 16px; text-align: center;" 
+            required>
               <option>Selecione a disciplina</option>
               <?php
         					$result_saida = "SELECT * FROM disciplina";
