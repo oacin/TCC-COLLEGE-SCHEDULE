@@ -1,7 +1,7 @@
 <?php
 include_once("conexao.php");
 //include_once("log.php");
-$result_veiculos = "SELECT professor.nomeP, professor.formacao, disciplina.nomeD FROM professor INNER JOIN disciplina where professor.idDisciplina = disciplina.id";
+$result_veiculos = "SELECT professor.cpf, professor.nomeP, professor.formacao, disciplina.nomeD, professor.statusProfessor FROM professor INNER JOIN disciplina where professor.idDisciplina = disciplina.id";
 $result_veiculos = mysqli_query ($conn, $result_veiculos); 
 
 
@@ -98,6 +98,12 @@ body {
         opacity: 1;
         right: 0;
       }
+	  
+	  .bgSizeContain {
+		   width: 50px;
+			height: 50px;
+ 
+	  }
 </style>
 	<body>
 	
@@ -119,6 +125,8 @@ body {
 				<th class="gg" align="center">Nome</th>
 				<th class="gg" align="center">formacao</th>
 				<th class="gg" align="center">Disciplina</th>
+				<th class="gg" align="center">Status</th>
+				<th class="gg" align="center">Editar</th>
 				
 			</tr>
 		</thead>
@@ -133,6 +141,8 @@ body {
 			<th class="gg" align="center"><?php echo   $row_veiculo['nomeP'] ;?></th>
 			<td class="gg" align="center"><?php echo  $row_veiculo['formacao'] ;?></td>
 			<td class="gg" align="center"><?php echo   $row_veiculo['nomeD'] ;?></td>
+			<td class="gg"><center><img class='bgSizeContain' src="<?php echo  $row_veiculo['statusProfessor'] ;?>.gif" /></center></td>
+			<td class="gg"><center><?php echo "<a href='../TCC/editProfessor.php?cpf=" . $row_veiculo['cpf'] . "'>Editar</a><br><hr>" ;?> </center></td>	
 			</tr>
 			<?php
 		}?>

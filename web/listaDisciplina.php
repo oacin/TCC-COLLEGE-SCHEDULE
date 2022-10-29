@@ -1,7 +1,7 @@
 <?php
 include_once("conexao.php");
 //include_once("log.php");
-$result_veiculos = "SELECT disciplina.nomeD, disciplina.semestre, curso.nome FROM disciplina INNER JOIN curso where disciplina.idcurso = curso.id ORDER BY disciplina.semestre";
+$result_veiculos = "SELECT disciplina.id, disciplina.nomeD, disciplina.semestre, curso.nome, disciplina.statusDis FROM disciplina INNER JOIN curso where disciplina.idcurso = curso.id ORDER BY disciplina.semestre";
 $result_veiculos = mysqli_query ($conn, $result_veiculos); 
 
 
@@ -98,6 +98,12 @@ body {
         opacity: 1;
         right: 0;
       }
+	  
+	  .bgSizeContain {
+		   width: 50px;
+			height: 50px;
+ 
+	  }
 </style>
 	<body>
 	
@@ -119,7 +125,8 @@ body {
 				<th class="gg" align="center">Nome</th>
 				<th class="gg" align="center">Semestre</th>
 				<th class="gg" align="center">Curso</th>
-				
+				<th class="gg" align="center">Status</th>
+				<th class="gg" align="center">Editar</th>
 			</tr>
 		</thead>
 
@@ -133,6 +140,8 @@ body {
 			<th class="gg" align="center"><?php echo   $row_veiculo['nomeD'] ;?></th>
 			<td class="gg" align="center"><?php echo  $row_veiculo['semestre'] ;?></td>
 			<td class="gg" align="center"><?php echo   $row_veiculo['nome'] ;?></td>
+			<td class="gg"><center><img class='bgSizeContain' src="<?php echo  $row_veiculo['statusDis'] ;?>.gif" /></center></td>
+			<td class="gg"><center><?php echo "<a href='../TCC/editDisciplina.php?id=" . $row_veiculo['id'] . "'>Editar</a><br><hr>" ;?> </center></td>
 			</tr>
 			<?php
 		}?>

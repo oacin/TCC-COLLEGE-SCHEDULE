@@ -64,6 +64,8 @@ include_once("conexao.php");
 
             <input type="text" id="periodo" name="periodo" placeholder="Período" autocomplete="off">
 
+            <input type="number" name="ativo" placeholder="1-Disponivel/0-Indisponivel" autocomplete="off">
+
 
             <input type="submit" value="Cadastrar"  a href = "../TCC/listaSalas.php">
             <input type="button" value="Cancelar" onclick="history.back()">

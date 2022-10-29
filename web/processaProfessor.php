@@ -9,6 +9,7 @@ include_once("conexao.php");
 	$formacao = $_POST['formacao'];
 	$disciplina = $_POST['select_disci'];
 	$periodo = $_POST['periodo'];
+	$ativo = $_POST['ativo'];
 	
 	
 
@@ -16,7 +17,7 @@ include_once("conexao.php");
 //echo "Nome: $nome <br>";
 //echo "E-mail: $email <br>";
 
-$result_saida = "INSERT INTO professor (cpf, nomeP, salario, data_nascimento, formacao, idDisciplina, periodo) VALUES ('$CPF', '$nome', '$salario', '$dNascimento', '$formacao', '$disciplina', '$periodo')";
+$result_saida = "INSERT INTO professor (cpf, nomeP, salario, data_nascimento, formacao, idDisciplina, periodo, statusProfessor) VALUES ('$CPF', '$nome', '$salario', '$dNascimento', '$formacao', '$disciplina', '$periodo', '$ativo' )";
 $resultado_saida = mysqli_query($conn, $result_saida);
 
 if(mysqli_insert_id($conn)){

@@ -48,7 +48,7 @@ include_once("conexao.php");
             <select name="aula" 
             style="border-radius: 5px; padding: 0px 75px; background-color: #f6f6f6; color: #0d0d0d; font-size: 16px; text-align: center;" 
             required>
-              <option>Selecione a sala</option>
+              <option>Selecione a sala:</option>
               <?php
 						$result_saida = "select *  from aula INNER JOIN curso
             INNER JOIN turma

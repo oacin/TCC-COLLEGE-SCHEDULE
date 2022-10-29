@@ -9,14 +9,14 @@ include_once("conexao.php");
 	$sala = $_POST['sala'];
 	$dCarga = $_POST['dCarga'];
 	$hora = $_POST['hora'];
-	
+	$al = $_POST['alocar'];
 
 
 //echo "Nome: $nome <br>";
 //echo "E-mail: $email <br>";
 
-$result_saida = "INSERT INTO aula (cursoID, turmaID, disciplinaID, professorID, salaID, carga, horario) 
-VALUES ('$curso', '$turma', '$disciplina', '$professor', '$sala', '$dCarga', '$hora')";
+$result_saida = "INSERT INTO aula (cursoID, turmaID, disciplinaID, professorID, salaID, carga, horario, alocado) 
+VALUES ('$curso', '$turma', '$disciplina', '$professor', '$sala', '$dCarga', '$hora', '$al')";
 $resultado_saida = mysqli_query($conn, $result_saida);
 
 if(mysqli_insert_id($conn)){

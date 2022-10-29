@@ -1,14 +1,14 @@
 <?php
 include_once("conexao.php");
 //include_once("log.php");
-$result_veiculos = "SELECT curso.nome, turma.name, disciplina.nomeD, professor.nomeP, sala.nomeS, carga, horario,dsemana.diaSemana, alocado from aula INNER JOIN curso
+$result_veiculos = "SELECT curso.nome, turma.name, disciplina.nomeD, professor.nomeP, sala.nomeS, dsemana.diaSemana, horario, alocado from aula INNER JOIN curso
 INNER JOIN turma
 INNER JOIN disciplina
 INNER JOIN professor
 INNER JOIN sala
-INNER JOIN dsemana
 INNER JOIN alocar
-where aula.cursoID = curso.id and aula.turmaID = turma.id_turma and alocar.aulaAula = aula.idAula and alocar.semanaS = dsemana.idSemana and aula.disciplinaID = disciplina.id and professorID = professor.cpf and salaID = sala.id
+INNER JOIN dsemana
+where aula.cursoID = curso.id and aula.turmaID = turma.id_turma and alocar.semanaS = dsemana.idSemana and  aula.disciplinaID = disciplina.id and professorID = professor.cpf and salaID = sala.id
 GROUP BY curso.nome;";
 $result_veiculos = mysqli_query ($conn, $result_veiculos); 
 
@@ -22,7 +22,7 @@ $result_veiculos = mysqli_query ($conn, $result_veiculos);
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 		 <link rel="icon" type="image/png" href="p.png">
-		<title>Listar Aula</title>		
+		<title>GRADE DE AULA</title>		
 	</head>
 <style>
 body {
@@ -118,49 +118,68 @@ body {
 	<table border="0">
 	<td class="gg"><img src="logo.png" width="300" height="80"></td>
 	 <td class="gg">
-				<a href="../TCC/cadastrarAlocacao.php"><button class="btNovo" >Nova Alocação</button></br><br>
+				</br><br>
 	 
 	 </td>
 	 <td width="1000" height="80"></td>
-	 <td width="150" height="10"><a href="../TCC/telaPrincipal.php"><button width="150" height="80" >VOLTAR</button></a></td>
+	 <td width="150" height="10"></td>
 	</table>
-	<br><br><center><h1>Aulas Alocadas</h1></center><br>
+	<br><br><center><h1>GRADE DE AULA</h1></center><br>
+	<form method="POST" action="">
+			<label>Nome: </label>
+			<input type="text" name="nome" placeholder="Digite o nome">
+			
+			<input name="SendPesqUser" type="submit" value="Pesquisar">
+		</form><br>
 	<div>
 	
 	<center><table class="table table-striped table-bordered table-hover" border="1">
 	<thead>
 			<tr class="trgg" >
-				<th class="gg" align="center">Aula</th>
+				<th class="gg" align="center">Curso</th>
+				<th class="gg" align="center">Turma</th>
+				<th class="gg" align="center">Disciplina</th>
+				<th class="gg" align="center">Professor</th>
+				<th class="gg" align="center">Sala</th>
 				<th class="gg" align="center">Dia da Semana</th>
-				
+				<th class="gg" align="center">Horario</th>
 			</tr>
 		</thead>
 
 		<tbody>
-	<?php
-
+	<tbody>
+		<?php
+			$SendPesqUser = filter_input(INPUT_POST, 'SendPesqUser', FILTER_SANITIZE_STRING);
+		if($SendPesqUser){
+			$nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+			$result_usuario = "SELECT curso.nome, turma.name, disciplina.nomeD, professor.nomeP, sala.nomeS, dsemana.diaSemana, horario, alocado FROM aula 
+			INNER JOIN curso
+			INNER JOIN turma
+			INNER JOIN disciplina
+			INNER JOIN professor
+			INNER JOIN sala
+			INNER JOIN alocar
+			INNER JOIN dsemana
+			WHERE curso.nome LIKE '%$nome%' and aula.cursoID = curso.id and aula.turmaID = turma.id_turma and alocar.semanaS = dsemana.idSemana and  aula.disciplinaID = disciplina.id and professorID = professor.cpf and salaID = sala.id
+			GROUP BY curso.nome;";
+			$result_usuario  = mysqli_query ($conn, $result_usuario ); 
+			
 				
-		while($row_veiculo = mysqli_fetch_assoc($result_veiculos)){
+		while($row_usuario = mysqli_fetch_assoc($result_usuario )){
 			?>
 			<tr class="trgg">
-			<th class="gg" align="center"><?php echo   $row_veiculo['nome']  ;
-			echo "<br>";
-			echo  $row_veiculo['name'];
-			echo "<br>";
-			echo   $row_veiculo['nomeD'] ;
-			echo "<br>";
-			echo  $row_veiculo['nomeP'] ;
-			echo "<br>";
-			echo   $row_veiculo['nomeS'] ;
-			echo "<br>";
-			?></th>
-			<td class="gg" align="center"><?php echo  $row_veiculo['diaSemana'] ;?></td>
-			
-			</center></td>
+			<th class="gg" align="center"><?php echo   $row_usuario['nome'] ;?></th>
+			<td class="gg" align="center"><?php echo  $row_usuario['name'] ;?></td>
+			<td class="gg" align="center"><?php echo   $row_usuario['nomeD'] ;?></td>
+			<td class="gg" align="center"><?php echo  $row_usuario['nomeP'] ;?></td>
+			<td class="gg" align="center"><?php echo   $row_usuario['nomeS'] ;?></td>
+			<td class="gg" align="center"><?php echo  $row_usuario['diaSemana'] ;?></td>
+			<td class="gg" align="center"><?php echo   $row_usuario['horario'] ;?></td>
 			</tr>
+			
 			<?php
-		}?>
-		
+		}
+			}?>
 		</tbody>
 	</table></center>
 	</div>

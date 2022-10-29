@@ -8,7 +8,7 @@ INNER JOIN professor
 INNER JOIN sala
 INNER JOIN alocar
 INNER JOIN dsemana
-where aula.cursoID = curso.id and aula.turmaID = turma.id_turma and alocar.semanaS = dsemana.idSemana
+where aula.cursoID = curso.id and aula.turmaID = turma.id_turma and alocar.semanaS = dsemana.idSemana and  aula.disciplinaID = disciplina.id and professorID = professor.cpf and salaID = sala.id
 GROUP BY curso.nome;";
 $result_veiculos = mysqli_query ($conn, $result_veiculos); 
 
@@ -122,7 +122,7 @@ body {
 	 
 	 </td>
 	 <td width="1000" height="80"></td>
-	 <td width="150" height="10"><a href="../TCC/telaPrincipal.php"><button width="150" height="80" >SAIR</button></a></td>
+	 <td width="150" height="10"><a href="../TCC/telaPrincipal.php"><button width="150" height="80" >VOLTAR</button></a></td>
 	</table>
 	<br><br><center><h1>GRADE</h1></center><br>
 	<div>
