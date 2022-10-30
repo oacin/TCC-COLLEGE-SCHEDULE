@@ -6,180 +6,68 @@ $result_saida = "SELECT *  FROM professor WHERE cpf = '$id' ";
 $resultado_saida = mysqli_query($conn, $result_saida);
 $row_saida = mysqli_fetch_assoc($resultado_saida);
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-		<meta charset="utf-8">
-		<link rel="icon" type="image/png" href="p.png">
-		<title>Editar</title>		
-	</head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-		<style>
-body {
-    padding: 0;
-    margin: 0;
-    background-color: #C0C0C0;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editrar Professor</title>
 
-#login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+    <link rel="stylesheet" href="CSS/cadastros.css">
 
-.card {
-    background-color: rgba(79,79,79, 0.5);
-    padding: 40px;
-    border-radius: 2px;
-    width:280px;
-}
+    <link rel="shortcut icon" type="imagem/x-icon" href="/CadastroCurso/imagens/logoIcon.png"/>
 
-.card-header {
-    padding-bottom: 50px;
-    opacity: 0.8;
-    color: #fff;
-}
+    <script>
+      function myFunction() {
+        var element = document.getElementById('td');
+        element.classList.add("classeComFundoVermelho");
+      }
+    </script>
 
-.card-header::after {
-    content: "";
-    width: 70px;
-    height: 1px;
 
-    display: block;
-    margin-top: -17px;
-    margin-left: -5px;
-}
+</head>
+<body>
+    <div class="squareLogin">
+    <h1>Editar Professor</h1>
 
-.card-content label {
-    color: #fff;
-    font-size: 12px;
-    opacity: 0.8;
-}
-
-.card-content-area {
-    display: flex;
-    flex-direction: column;
-    padding:10px 0;
-}
-
-.card-content-area input {
-    margin-top: 10px;
-    padding:0 5px;
-    background-color: transparent;
-    border:none;
-    border-bottom: 1px solid #e1e1e1;
-    outline: none;
-    color: #fff;
-}
-
-.card-footer {
-    display: flex;
-    flex-direction: column;
-}
-
-.card-footer .submit{
-    width: 100%;
-    height: 40px;
-    background-color: #0C2340;
-    border:none;
-    color:#e1e1e1;
-    margin: 10px 0;
-}
-
-.card-footer a {
-    text-align: center;
-    font-size: 12px;
-    opacity: 0.8;
-    color: #fff;
-    text-decoration: none;
-}
-
-.pharma {
-	width: 100%;
-    height: 100%;
-}
-</style>
-<script>
-function myFunction() {
-   var element = document.getElementById('td');
-   element.classList.add("classeComFundoVermelho");
-}
-</script>
-	<body>
-		<center><h1>EDITOR DE PROFESSORES</h1></center>
-		<?php
+    <?php
 		if(isset($_SESSION['msg'])){
 			echo $_SESSION['msg'];
 			unset($_SESSION['msg']);
 		}
 		?>
-	 
-	
-	 <div id="login">
 
-            <form class="card" method="POST" action="proc_edit_professor.php">
-			<input type="hidden" name="id" value="<?php echo $row_saida['cpf']; ?>">
+        <div id="formContent">          
+      
+          <!-- Logo -->
+          <div class="logo">
+            <img src="imagens/logo.png" id="logo" alt="UNIFAJ" />
+          </div>
+      
+          <form class="card" method="POST" action="proc_edit_professor.php">
+          <input type="hidden" name="id" value="<?php echo $row_saida['cpf']; ?>">
 
-                <div class="card-header">
+            <input type="text" name="nome" value="<?php echo $row_saida['nomeP']; ?>">
 
-                    <img  src="logo.png" class ="pharma">
+            <input type="number" name="salario"  value="<?php echo $row_saida['salario']; ?>">
 
-                </div>
+            <input type="date" name="numero" value="<?php echo $row_saida['data_nascimento']; ?>">
 
-                <div class="card-content">
-					
-				  <div class="card-content-area">
-					<label>Nome: </label>
-					<input type="text" name="nome" value="<?php echo $row_saida['nomeP']; ?>">
-				</div>
-				
-				 <div class="card-content-area">
-					<label>Salario: </label>
-					<input type="number" name="salario"  value="<?php echo $row_saida['salario']; ?>">
-				</div>
-				
-				 <div class="card-content-area">
-					<label>Data de nascimento: </label>
-					<input type="date" name="numero" value="<?php echo $row_saida['data_nascimento']; ?>">
-				</div>
-				
-				<div class="card-content-area">
-					<label>Formação: </label>
-					<input type="text" name="nome" value="<?php echo $row_saida['formacao']; ?>">
-				</div>
-				
-				<div class="card-content-area">
-					<label>Disciplina: </label>
-					<input type="number" name="salario"  value="<?php echo $row_saida['idDisciplina']; ?>">
-				</div>
-				
-				 <div class="card-content-area">
-					<label>Periodo: </label>
-					<input type="text" name="nome" value="<?php echo $row_saida['periodo']; ?>">
-				</div>
-				
-				<div class="card-content-area">
-					<label>Status:</label>
-					<input type="number" name="status" autocomplete="off" required placeholder="0-Datativado/1-Ativado" value="<?php echo $row_saida['statusProfessor']; ?>">
-				</div>
-			
-				
-				
-				 
-					
-                </div>
+            <input type="text" name="nome" value="<?php echo $row_saida['formacao']; ?>">
 
-                <div class="card-footer">
+            <input type="number" name="salario"  value="<?php echo $row_saida['idDisciplina']; ?>">
 
-                   <input type="submit" value="Concluir"  a href = "../TCC/listaProfessor.php">
-				
-                </div>
+            <input type="text" name="nome" value="<?php echo $row_saida['periodo']; ?>">
 
-            </form>
-			
+            <input type="number" name="status" autocomplete="off" required placeholder="0-Datativado/1-Ativado" value="<?php echo $row_saida['statusProfessor']; ?>">
 
-	</body>
+            <input type="submit" value="Confirmar"  a href = "../TCC/listaProfessor.php">
+            <input type="button" value="Cancelar" onclick="history.back()">
+          </form>
+      
+        </div>
+      </div>
+</body>
 </html>

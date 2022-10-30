@@ -57,7 +57,7 @@ $result_veiculos = mysqli_query ($conn, $result_veiculos);
                         <td><?php echo  $row_veiculo['quantidadeAluno'] ;?></td>
                         <td><?php echo   $row_veiculo['periodo'] ;?></td>
                         <td><?php echo   $row_veiculo['qtdSemestre'] ;?></td>
-                        <td><img src="<?php echo  $row_veiculo['statusCurso'] ;?>.gif"/></td>
+                        <td><img height="50px" src="<?php echo  $row_veiculo['statusCurso'] ;?>.gif"/></td>
                         <td><?php echo "<a href='../TCC/editCurso.php?id=" . $row_veiculo['id'] . "'>Editar</a><br><hr>" ;?></td>
                     </tr>
                         <?php
