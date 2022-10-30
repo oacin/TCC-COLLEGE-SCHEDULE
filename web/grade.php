@@ -35,9 +35,7 @@ $result_veiculos = mysqli_query ($conn, $result_veiculos);
         <button class="button-exit" onclick="history.back()">VOLTAR</button>
     </div>
 
-    <div class="buttonCadastroLoc">
-        <button class="button-novoCurso" onclick="location.href='../TCC/cadastrarAula.php';">NOVA AULA</button>
-    </div>
+
 
     <header>
         <h1>GRADE</h1>
